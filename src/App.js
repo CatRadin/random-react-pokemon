@@ -1,34 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import { BASE_URL, API_KEY } from "./constants";
-import axios from "axios"
-import Nav from './components/Nav'
-import Card from './components/Card'
-
-import moment from 'moment'; 
+import './styles.css'
+import React from 'react'
+import Pokemon from './components/Pokemon.js'
 
 function App() {
-//use states here
-const [nasaData, setNasaData] = useState({});
-// const [date, setDate] = useState(currentDate);
-var currentDate = moment().format("YYYY-MM-DD");
-console.log(currentDate, nasaData);
-
-//call use effect to get the nasa data
-
-useEffect(() => {
-  axios.get(`${BASE_URL}?api_key=${API_KEY}`)
-  .then(response => {setNasaData(response.data)})
-  .catch(error => {(console.log(error))})
-},[]);
-
   return (
     <div className="App">
-      <Nav />
-      <Card nasaData={nasaData} />
-      {/* <Arrow /> */}
+      <div className='blur'>
+      <div className ="red-bar">
+        <h1>Get Pokemon</h1> <img src='https://i.gifer.com/origin/28/2860d2d8c3a1e402e0fc8913cd92cd7a_w200.gif' alt='pokeball'></img>
+        </div>
+      
+      <Pokemon />
+      </div>
     </div>
   );
 }
 
 export default App;
+
